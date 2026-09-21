@@ -17,11 +17,13 @@ Nagomiku氏の[スピード線](https://x.com/nagomiku7359/status/13025542035674
 
 ## 最新 / Latest
 
-**r1**
+**r2**
 
 
 ## 変更履歴 / Change log
 
+- r2
+  - [無印ノイズ](https://github.com/nea-c/aviutl2_script_AviUtlNoise)を使用可能なオプションを追加
 
 - r1
   - 初版
