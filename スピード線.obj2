@@ -1,6 +1,5 @@
 
 --label:カスタムオブジェクト
---check@use_aviutl_noise:無印ノイズを使用,false
 --track@width_track:幅,0,4000,300
 --track@threshold:しきい値,0,100,20
 --track@thickness:濃さ,0,100,80
@@ -11,6 +10,7 @@
 --track@periodY:周期Y,0,1000,6,0.01
 --track@seed:シード,0,1000,0,1
 --color@color:色,0xffffff
+--check@use_aviutl_noise:無印ノイズを使用,false
 --check@is_vertical:縦方向,false
 --check@invert_alpha:透明度反転,true
 --check@width_per:幅を割合に,false
