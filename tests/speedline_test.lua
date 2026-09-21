@@ -21,7 +21,7 @@ local function run_speedline(use_aviutl_noise, fail_aviutl_noise)
         local args = { ... }
         calls.effects[#calls.effects + 1] = args
         if args[1] == "無印ノイズ" and fail_aviutl_noise then
-            error("effect not found")
+            return false
         end
         return true
     end

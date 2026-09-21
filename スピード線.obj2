@@ -67,7 +67,7 @@ if not(math.floor(width)<=0)then
     obj.effect("斜めクリッピング","角度",angle,"幅",-width,"ぼかし",blur)
 end
 if use_aviutl_noise then
-    local success = pcall(obj.effect,"無印ノイズ","強さ",100,"速度X",speed_x,"速度Y",speed_y,"周期X",periodX,"周期Y",periodY,"しきい値",threshold,"シード",seed,"合成モード","アルファ値と乗算","ノイズの種類","Type3")
+    local success = obj.effect("無印ノイズ","強さ",100,"速度X",speed_x,"速度Y",speed_y,"周期X",periodX,"周期Y",periodY,"しきい値",threshold,"シード",seed,"合成モード","アルファ値と乗算","ノイズの種類","Type3")
     if not success then
         obj.load("text","無印ノイズ.anm2の呼び出しに失敗しました")
         return
