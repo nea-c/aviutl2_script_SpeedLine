@@ -14,6 +14,7 @@
 --check@invert_alpha:透明度反転,true
 --check@width_per:幅を割合に,false
 --check@effect_before:前にエフェクトを適応,false
+--check@use_aviutl_noise:無印ノイズを使用,false
 
 
 --[[pixelshader@psmain:
@@ -65,7 +66,15 @@ end
 if not(math.floor(width)<=0)then
     obj.effect("斜めクリッピング","角度",angle,"幅",-width,"ぼかし",blur)
 end
-obj.effect("ノイズ","強さ",100,"速度X",speed_x,"速度Y",speed_y,"周期X",periodX,"周期Y",periodY,"しきい値",threshold,"seed",seed,"合成モード","アルファ値と乗算","ノイズの種類","Type3")
+if use_aviutl_noise then
+    local success = pcall(obj.effect,"無印ノイズ","強さ",100,"速度X",speed_x,"速度Y",speed_y,"周期X",periodX,"周期Y",periodY,"しきい値",threshold,"シード",seed,"合成モード","アルファ値と乗算","ノイズの種類","Type3")
+    if not success then
+        obj.load("text","無印ノイズ.anm2の呼び出しに失敗しました")
+        return
+    end
+else
+    obj.effect("ノイズ","強さ",100,"速度X",speed_x,"速度Y",speed_y,"周期X",periodX,"周期Y",periodY,"しきい値",threshold,"seed",seed,"合成モード","アルファ値と乗算","ノイズの種類","Type3")
+end
 
 local alpha1 = (thickness / 100)
 local alpha2 = (1 - alpha1) * (1 - thinness / 100) + alpha1

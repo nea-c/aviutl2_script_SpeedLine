@@ -3,6 +3,7 @@
   "exclude": [
     ".git/",
     ".gitignore",
+    "tests/",
     "/*.zip",
     "resources_zip.bat",
     "resources_zip.json"
