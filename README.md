@@ -1,5 +1,7 @@
 # スピード線
 
+![sample](sample.webp)
+
 Nagomiku氏の[スピード線](https://x.com/nagomiku7359/status/1302554203567435778)を参考にAviUtl2用に作成したもの。
 
 
