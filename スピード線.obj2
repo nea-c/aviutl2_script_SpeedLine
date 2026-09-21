@@ -1,5 +1,6 @@
 
 --label:カスタムオブジェクト
+--check@use_aviutl_noise:無印ノイズを使用,false
 --track@width_track:幅,0,4000,300
 --track@threshold:しきい値,0,100,20
 --track@thickness:濃さ,0,100,80
@@ -14,7 +15,6 @@
 --check@invert_alpha:透明度反転,true
 --check@width_per:幅を割合に,false
 --check@effect_before:前にエフェクトを適応,false
---check@use_aviutl_noise:無印ノイズを使用,false
 
 
 --[[pixelshader@psmain:
