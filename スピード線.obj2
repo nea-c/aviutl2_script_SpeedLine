@@ -4,14 +4,14 @@
 --track@threshold:しきい値,0,100,20
 --track@thickness:濃さ,0,100,80
 --track@thinness:薄さ,0,100,0
+--check@use_aviutl_noise:無印ノイズを使用,false
+--check@is_vertical:縦方向,false
 --track@spd:速度,-800,800,20,0.1
 --track@blur:ぼかし,0,1000,150,0.01
 --track@periodX:周期X,0,1000,0.1,0.01
 --track@periodY:周期Y,0,1000,6,0.01
 --track@seed:シード,0,1000,0,1
 --color@color:色,0xffffff
---check@use_aviutl_noise:無印ノイズを使用,false
---check@is_vertical:縦方向,false
 --check@invert_alpha:透明度反転,true
 --check@width_per:幅を割合に,false
 --check@effect_before:前にエフェクトを適応,false
@@ -67,11 +67,21 @@ if not(math.floor(width)<=0)then
     obj.effect("斜めクリッピング","角度",angle,"幅",-width,"ぼかし",blur)
 end
 if use_aviutl_noise then
-    local success = obj.effect("無印ノイズ","強さ",100,"速度X",speed_x,"速度Y",speed_y,"周期X",periodX,"周期Y",periodY,"しきい値",threshold,"シード",seed,"合成モード","アルファ値と乗算","ノイズの種類","Type3")
-    if not success then
+    local probe_cache = "cache:speedline_noise_probe"
+    if not obj.copybuffer(probe_cache,"object") then
         obj.load("text","無印ノイズ.anm2の呼び出しに失敗しました")
         return
     end
+    obj.clearbuffer("object",1,1,0xffffff)
+    obj.effect("無印ノイズ","強さ",200,"合成モード","アルファ値と乗算")
+    obj.pixeloption("get","object")
+    local _, _, _, probe_alpha = obj.getpixel(0,0,"rgb")
+    local restored = obj.copybuffer("object",probe_cache)
+    if not restored or probe_alpha ~= 0 then
+        obj.load("text","無印ノイズ.anm2の呼び出しに失敗しました")
+        return
+    end
+    obj.effect("無印ノイズ","強さ",100,"速度X",speed_x,"速度Y",speed_y,"周期X",periodX,"周期Y",periodY,"しきい値",threshold,"シード",seed,"合成モード","アルファ値と乗算","ノイズの種類","Type3")
 else
     obj.effect("ノイズ","強さ",100,"速度X",speed_x,"速度Y",speed_y,"周期X",periodX,"周期Y",periodY,"しきい値",threshold,"seed",seed,"合成モード","アルファ値と乗算","ノイズの種類","Type3")
 end
