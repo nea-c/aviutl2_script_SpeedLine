@@ -7,7 +7,7 @@ Nagomiku氏の[スピード線](https://x.com/nagomiku7359/status/13025542035674
 
 ## 無印ノイズを使用
 
-「無印ノイズ」を有効にすると、[無印ノイズ](https://github.com/nea-c/aviutl2_script_AviUtlNoise)でノイズを生成します。
+「無印ノイズを使用」を有効にすると、[無印ノイズ](https://github.com/nea-c/aviutl2_script_AviUtlNoise)を利用してノイズを生成します。
 
 ## 最新 / Latest
 
